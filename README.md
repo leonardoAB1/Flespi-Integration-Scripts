@@ -5,6 +5,12 @@ This repository houses a set of Python scripts designed for integration with the
 For comprehensive documentation, please refer to the [General Documentation](https://flespi.io/docs/#/mqtt/sessions).  
 Additionally, you can find information about tokens and access keys in the [Token Documentation](https://flespi.com/kb/tokens-access-keys-to-flespi-platform#token-groups).
 
+
+## Jan Bartnitsky. Integration with flespi: REST API, streams, MQTT
+
+[![Watch the video](https://img.youtube.com/vi/nB2NVsyEfok/maxresdefault.jpg)](https://www.youtube.com/watch?v=nB2NVsyEfok)
+
+
 ## Scripts Overview
 
 ### MQTT Integration Scripts
