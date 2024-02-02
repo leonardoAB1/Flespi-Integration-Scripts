@@ -34,7 +34,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
   "ident":"015136001986400",
   "lock.status":true,
   "message.type":"H0",
-  "peer":"161.56.0.236:63609",
+  "peer": "###.##.#.###:#####",
   "protocol.id":200,
   "server.timestamp":1706905170.17258,
   "timestamp":1706905170.17258,
