@@ -20,16 +20,62 @@ Additionally, you can find information about tokens and access keys in the [Toke
 
 - **Description:** MQTT client script for real-time message retrieval from a specific device.
 - **MQTT Topic:** `flespi/message/gw/devices/{device_id}`
+- **Sample Response:**
+```json
+{
+  "battery.charging.status":false,
+  "battery.level":70,
+  "battery.voltage":4.09,
+  "channel.id":1190401,
+  "device.id":5539228,
+  "device.name":"scooterMobi010",
+  "device.type.id":1272,
+  "gsm.signal.level":90,
+  "ident":"015136001986400",
+  "lock.status":true,
+  "message.type":"H0",
+  "peer":"161.56.0.236:63609",
+  "protocol.id":200,
+  "server.timestamp":1706905170.17258,
+  "timestamp":1706905170.17258,
+  "vendor.code":"OM" 
+}
+```
 
 #### flespi_mqtt_api_usecase_01.py
 
 - **Description:** MQTT client script to get the scooter's real-time location.
 - **MQTT Topic:** `flespi/state/gw/devices/{device_id}/telemetry/position`
+- **Sample Response:**
+```json
+{
+    "altitude": 408.9,
+    "hdop": 0.87,
+    "latitude": -17.72436,
+    "longitude": -63.171508,
+    "satellites": 9,
+    "valid": true
+}
+```
 
 #### flespi_mqtt_api_usecase_02.py
 
 - **Description:** MQTT client script to retrieve a list of active TCP connections from a device.
 - **MQTT Topic:** `flespi/state/gw/devices/{device_id}/connections/+`
+- **Sample Response:**
+```json
+{
+    "channel_id": 1190401,
+    "device_id": 5537057,
+    "established": 1706877098.857462,
+    "id": 3492206331502027,
+    "ident": "015136001973812",
+    "meta": null,
+    "secondary": false,
+    "source": "###.##.#.###:#####",
+    "transport": "tcp"
+}
+```
 
 ### REST API Integration Scripts
 
