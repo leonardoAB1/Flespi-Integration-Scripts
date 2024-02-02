@@ -83,8 +83,93 @@ Additionally, you can find information about tokens and access keys in the [Toke
 
 - **Description:** Script using Flespi REST API to retrieve data about all registered devices.
 - **API Endpoint:** `https://flespi.io/mqtt/sessions/all`
+- **Sample Response:**
+```json
+{
+  "result": [
+    {
+      "size": 0,
+      "ip": "###.###.###.##",
+      "id": ##########,
+      "connected": true,
+      "cid": #######,
+      "clean": true,
+      "client_id": "panel-4.45.24-########",
+      "expires": 0
+    },
+    {
+      "size": 0,
+      "ip": "###.###.###.##",
+      "id": ##########,
+      "connected": true,
+      "cid": #######,
+      "clean": true,
+      "client_id": "apibox-0.6.11-########",
+      "expires": 0
+    },
+    {
+      "size": 0,
+      "ip": "###.###.###.##",
+      "id": ##########,
+      "connected": true,
+      "cid": #######,
+      "clean": true,
+      "client_id": "helpbox-2.6.1-########",
+      "expires": 0
+    }
+  ]
+}
+```
 
 #### flespi_res_api_usecase_01.py
 
 - **Description:** Script using Flespi REST API to get telemetry data for a specific device's altitude, latitude, and longitude.
 - **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/telemetry/{parameter}`
+- **Sample Responses:**
+```json
+{
+  "result": [
+    {
+      "id": 5537057,
+      "telemetry": {
+        "position.altitude": {
+          "ts": 1706905852,
+          "value": 412.1
+        }
+      }
+    }
+  ]
+}
+```
+
+```json
+{
+  "result": [
+    {
+      "id": 5537057,
+      "telemetry": {
+        "position.latitude": {
+          "ts": 1706905852,
+          "value": -17.72436
+        }
+      }
+    }
+  ]
+}
+```
+
+```json
+{
+  "result": [
+    {
+      "id": 5537057,
+      "telemetry": {
+        "position.longitude": {
+          "ts": 1706905852,
+          "value": -63.171493
+        }
+      }
+    }
+  ]
+}
+```
