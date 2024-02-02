@@ -90,9 +90,9 @@ Additionally, you can find information about tokens and access keys in the [Toke
     {
       "size": 0,
       "ip": "###.###.###.##",
-      "id": ##########,
+      "id": "##########",
       "connected": true,
-      "cid": #######,
+      "cid": "#######",
       "clean": true,
       "client_id": "panel-4.45.24-########",
       "expires": 0
@@ -100,9 +100,9 @@ Additionally, you can find information about tokens and access keys in the [Toke
     {
       "size": 0,
       "ip": "###.###.###.##",
-      "id": ##########,
+      "id": "##########",
       "connected": true,
-      "cid": #######,
+      "cid": "#######",
       "clean": true,
       "client_id": "apibox-0.6.11-########",
       "expires": 0
@@ -110,9 +110,9 @@ Additionally, you can find information about tokens and access keys in the [Toke
     {
       "size": 0,
       "ip": "###.###.###.##",
-      "id": ##########,
+      "id": "##########",
       "connected": true,
-      "cid": #######,
+      "cid": "#######",
       "clean": true,
       "client_id": "helpbox-2.6.1-########",
       "expires": 0
