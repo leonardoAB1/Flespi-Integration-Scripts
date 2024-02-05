@@ -69,11 +69,35 @@ Additionally, you can find information about tokens and access keys in the [Toke
     "device_id": 5537057,
     "established": 1706877098.857462,
     "id": 3492206331502027,
-    "ident": "015136001973812",
+    "ident": "################",
     "meta": null,
     "secondary": false,
     "source": "###.##.#.###:#####",
     "transport": "tcp"
+}
+```
+
+#### flespi_mqtt_api_usecase_03
+
+- **Description:** MQTT Client Script with Flespi Integration to get Scooter's General Info.
+- **MQTT Topic:** `flespi/state/gw/devices/{device_id}`
+- **Sample Responses:**
+- 
+```json
+{
+    "cid": "#######",
+    "configuration": {
+        "ident": "################",
+        "settings_polling": "once"
+    },
+    "device_type_id": 1272,
+    "id": 5537057,
+    "media_rotate": 0,
+    "media_ttl": 31536000,
+    "messages_rotate": 0,
+    "messages_ttl": 31536000,
+    "name": "SomeName",
+    "protocol_id": 200
 }
 ```
 
@@ -170,6 +194,72 @@ Additionally, you can find information about tokens and access keys in the [Toke
         }
       }
     }
+  ]
+}
+```
+
+#### flespi_res_api_usecase_02.py
+- **Description:** Retrieves historic data for a specified device. It prints the historic location data, including latitude, longitude, and timestamp, and visualizes the device's path by plotting points on a map using geopandas and matplotlib libraries. The script also fetches and utilizes an authorization token from environment variables for secure API access.
+- **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/messages`
+- **Sample Responses:**
+```json
+{
+  "result": [
+    {
+      "battery.level": 90,
+      "battery.voltage": 4.11,
+      "channel.id": 1190401,
+      "device.id": 5537057,
+      "device.name": "SomeName",
+      "device.type.id": 1272,
+      "gsm.signal.level": 65,
+      "ident": "################",
+      "message.type": "Q0",
+      "peer": "###.##.##.###:#####",
+      "protocol.id": 200,
+      "server.timestamp": 1706760540.344204,
+      "timestamp": 1706760540.344204,
+      "vendor.code": "OM"
+    },
+    {
+      "channel.id": 1190401,
+      "device.id": 5537057,
+      "device.name": "SomeName",
+      "device.type.id": 1272,
+      "ident": "################",
+      "indication.mode": "A",
+      "message.type": "D0",
+      "peer": "###.##.##.###:#####",
+      "position.altitude": 398.7,
+      "position.hdop": 0.97,
+      "position.latitude": -17.724326,
+      "position.longitude": -63.171542,
+      "position.satellites": 11,
+      "position.valid": true,
+      "protocol.id": 200,
+      "server.timestamp": 1706760560.319966,
+      "timestamp": 1706760559,
+      "vendor.code": "OM"
+    },
+    {
+      "battery.charging.status": false,
+      "battery.level": 90,
+      "battery.voltage": 4.11,
+      "channel.id": 1190401,
+      "device.id": 5537057,
+      "device.name": "SomeName",
+      "device.type.id": 1272,
+      "gsm.signal.level": 65,
+      "ident": "################",
+      "lock.status": true,
+      "message.type": "H0",
+      "peer": "###.##.##.###:#####",
+      "protocol.id": 200,
+      "server.timestamp": 1706760600.823599,
+      "timestamp": 1706760600.823599,
+      "vendor.code": "OM"
+    },
+    ....
   ]
 }
 ```
