@@ -9,6 +9,7 @@ Script with Flespi Integration to get registered devices location
 # Import necessary libraries
 import requests
 import os
+import json
 
 # Define the telemetry data fields to retrieve
 data = ["position.altitude", "position.latitude", "position.longitude"]
@@ -30,7 +31,8 @@ for i in data:
     endpoint_url = f"https://flespi.io/gw/devices/{device_id}/telemetry/{i}"
     
     # Make the GET request and print the response text
-    print(requests.request("GET", endpoint_url, data=payload, headers=headersList).text)
+    response = json.dumps(json.loads(requests.request("GET", endpoint_url, data=payload, headers=headersList).text), indent=4)
+    print(response)
 
 # Sample output:
 # {"result":[{"id":5537057,"telemetry":{"position.altitude":{"ts":1706890490,"value":396.9}}}]}

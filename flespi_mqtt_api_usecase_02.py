@@ -12,6 +12,7 @@ MQTT Documentation in https://flespi.com/kb/mqtt-topics
 import os
 import asyncio
 import signal
+import json
 
 # Import the MQTT client library
 from gmqtt import Client as MQTTClient
@@ -31,7 +32,10 @@ def ask_exit(*args):
 
 # Callback function to handle incoming MQTT messages
 def on_message(client, topic, payload, qos, properties):
-    print('received message in topic \n"{}": "{}"'.format(topic, payload.decode('utf8')))
+    decoded_payload = payload.decode('utf8')
+    formatted_payload = json.dumps(json.loads(decoded_payload), indent=4)
+
+    print('received message in topic "{}":\n{}'.format(topic, formatted_payload))
     print('disconnecting...')
     ask_exit()
 

@@ -11,6 +11,7 @@ Script with Flespi Integration to get registered devices data
 # Import necessary libraries
 import requests
 import os
+import json
 
 # Define the Flespi API endpoint URL to get all registered devices
 reqUrl = "https://flespi.io/mqtt/sessions/all"
@@ -24,7 +25,7 @@ headersList = {
 payload = ""
 
 # Make a GET request to the Flespi API to get all registered devices
-response = requests.request("GET", reqUrl, data=payload, headers=headersList)
+response = json.dumps(json.loads(requests.request("GET", reqUrl, data=payload, headers=headersList).text), indent=4)
 
 # Print the response text (which contains information about all registered devices)
-print(response.text)
+print(response)
