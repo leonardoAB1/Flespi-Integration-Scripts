@@ -263,3 +263,45 @@ Additionally, you can find information about tokens and access keys in the [Toke
   ]
 }
 ```
+
+#### flespi_res_api_usecase_03.py
+- **Description:** This Python script utilizes Flespi's REST API to control device lock status and subscribes to its MQTT telemetry for real-time updates on lock status.
+- **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/commands`
+```json
+{
+  "name": "setting.r0.set",
+  "properties": {
+    "key_time": 1,
+    "lock": 1,
+    "user_id": ""
+  },
+  "timeout": 10
+}
+
+```
+- **Sample Responses:**
+```json
+{
+    "result": [
+        {
+            "timestamp": 1707247209,
+            "response": null,
+            "id": 1707247199664458,
+            "position": 1,
+            "name": "setting.r0.set",
+            "device_id": 5544049,
+            "executed": false,
+            "properties": {
+                "key_time": 1,
+                "lock": 1,
+                "user_id": ""
+            },
+            "expires": 0
+        }
+    ]
+}
+```
+- **MQTT Topic:** `flespi/state/gw/devices/{device_id}/telemetry/lock.status`
+```json
+true
+```

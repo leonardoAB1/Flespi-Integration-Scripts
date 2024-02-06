@@ -94,6 +94,7 @@ async def main():
 if __name__ == '__main__':
     # Convert the data to JSON string
     data = json.dumps([data_template])
+    print(data)
 
     # Measure the time before sending the POST request
     start_time = time.time()
@@ -105,7 +106,7 @@ if __name__ == '__main__':
     end_time = time.time()
     
     # Print the response
-    print(response.text)
+    print(json.dumps(json.loads(response.text), indent=4))
 
     # Calculate and print the time taken
     print(f"Time taken POST request: {end_time - start_time} seconds")   
