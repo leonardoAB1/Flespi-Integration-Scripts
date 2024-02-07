@@ -122,6 +122,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
 
 - **Description:** Script using Flespi REST API to retrieve data about all registered devices.
 - **API Endpoint:** `https://flespi.io/mqtt/sessions/all`
+- **Method:** `GET`
 - **Sample Response:**
 ```json
 {
@@ -164,6 +165,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
 
 - **Description:** Script using Flespi REST API GET request to get telemetry data for a specific device's altitude, latitude, and longitude.
 - **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/telemetry/{parameter}`
+- **Method:** `GET`
 - **Sample Responses:**
 ```json
 {
@@ -216,6 +218,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
 #### flespi_res_api_usecase_02.py
 - **Description:** Retrieves historic data for a specified device. It prints the historic location data, including latitude, longitude, and timestamp, and visualizes the device's path by plotting points on a map using geopandas and matplotlib libraries. The script also fetches and utilizes an authorization token from environment variables for secure API access.
 - **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/messages`
+- **Method:** `GET`
 - **Sample Responses:**
 ```json
 {
@@ -281,7 +284,9 @@ Additionally, you can find information about tokens and access keys in the [Toke
 
 #### flespi_res_api_usecase_03.py
 - **Description:** This Python script utilizes Flespi's REST API POST request to control device lock status and subscribes to its MQTT telemetry for real-time updates on lock status.
-- **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/commands`
+- **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/commands`  
+- **Method:** `POST`
+- Sample JSON Data Sent in the POST Request
 ```json
 {
   "name": "setting.r0.set",
@@ -294,17 +299,17 @@ Additionally, you can find information about tokens and access keys in the [Toke
 }
 
 ```
-- **Sample Responses:**
+- **Sample Response:**
 ```json
 {
     "result": [
         {
-            "timestamp": 1707247209,
+            "timestamp": 1707247209, //Actual Time in UNIX timestamp format
             "response": null,
             "id": 1707247199664458,
             "position": 1,
             "name": "setting.r0.set",
-            "device_id": 5544049,
+            "device_id": 5544049, 
             "executed": false,
             "properties": {
                 "key_time": 1,
@@ -320,3 +325,46 @@ Additionally, you can find information about tokens and access keys in the [Toke
 ```json
 true
 ```
+
+#### flespi_res_api_usecase_04.py
+- **Description:** The script integrates with the Flespi REST API to generate new tokens with specified privileges and expiration time.
+- **API Endpoint:** `https://flespi.io/platform/tokens?fields=`  
+- **Method:** `POST`
+- Sample JSON Data Sent in the POST Request
+```json
+[
+  {
+    "info": "Master", //Some Name
+    "access": {
+      "type": 1       //Privileges(0=Standart, 1=Master)
+    },
+    "ttl": 60         //Time to live in seconds
+  }
+]
+```
+This JSON data includes:
+- `"info"`: Information about the token, in this case, labeled as "Master".
+- `"access"`: Specifies the access type, where `type` 1 indicates a Master token.
+- `"ttl"`: Time to live in seconds, set to 60 seconds.
+- **Sample Response:**
+```json
+{
+  "result": [
+    {
+      "ips": "",
+      "id": 00000000, //Token ID
+      "enabled": true,
+      "expire": 0,
+      "created": 1707335420, //Time of Creation in UNIX timestamp format
+      "key": "SomeKey",
+      "ttl": 60, //Time To Live
+      "info": "Master", //Given Name
+      "cid": 0000000, //Some given cid
+      "access": {
+        "type": 1
+      }
+    }
+  ]
+}
+```
+This sample response provides details of the newly created token, including its ID, key, privileges, and expiration time.
