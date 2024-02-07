@@ -331,7 +331,7 @@ true
 - **API Endpoint:** `https://flespi.io/platform/tokens?fields=`  
 - **Method:** `POST`
 - Sample JSON Data Sent in the POST Request
-```json
+```js
 [
   {
     "info": "Master", //Some Name
