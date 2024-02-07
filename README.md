@@ -1,6 +1,6 @@
 # Flespi Integration Scripts
 
-This repository houses a set of Python scripts designed for integration with the Flespi platform, employing both MQTT and REST APIs. The scripts serve as illustrative examples for diverse use cases, including but not limited to real-time message retrieval, scooter location tracking, active TCP connection monitoring from a device, and retrieving details about registered devices.
+This repository houses a set of scripts designed for integration with the Flespi platform, employing both MQTT and REST APIs. The scripts serve as illustrative examples for diverse use cases, including but not limited to real-time message retrieval, scooter location tracking, active TCP connection monitoring from a device, and retrieving details about registered devices.
 
 For comprehensive documentation, please refer to the [General Documentation](https://flespi.io/docs/#/mqtt/sessions).  
 Additionally, you can find information about tokens and access keys in the [Token Documentation](https://flespi.com/kb/tokens-access-keys-to-flespi-platform#token-groups).
@@ -77,12 +77,11 @@ Additionally, you can find information about tokens and access keys in the [Toke
 }
 ```
 
-#### flespi_mqtt_api_usecase_03
+#### flespi_mqtt_api_usecase_03.py
 
 - **Description:** MQTT Client Script with Flespi Integration to get Scooter's General Info.
 - **MQTT Topic:** `flespi/state/gw/devices/{device_id}`
 - **Sample Responses:**
-- 
 ```json
 {
     "cid": "#######",
@@ -99,6 +98,22 @@ Additionally, you can find information about tokens and access keys in the [Toke
     "name": "SomeName",
     "protocol_id": 200
 }
+```
+
+#### flespi_mqtt_api_usecase_04.py
+- **Description:** MQTT Client Script with Flespi Integration to get Scooter's Location and Battery.  Behavior replicated in flutter example.
+- **MQTT Topic:** `flespi/state/gw/devices/{device_id}/telemetry/position,battery.level`
+- **Sample Responses:**
+```json
+{
+    "altitude": 415.1,
+    "hdop": 0.75,
+    "latitude": -17.763683,
+    "longitude": -63.20278,
+    "satellites": 12,
+    "valid": true
+}
+100
 ```
 
 ### REST API Integration Scripts
@@ -147,7 +162,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
 
 #### flespi_res_api_usecase_01.py
 
-- **Description:** Script using Flespi REST API to get telemetry data for a specific device's altitude, latitude, and longitude.
+- **Description:** Script using Flespi REST API GET request to get telemetry data for a specific device's altitude, latitude, and longitude.
 - **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/telemetry/{parameter}`
 - **Sample Responses:**
 ```json
@@ -265,7 +280,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
 ```
 
 #### flespi_res_api_usecase_03.py
-- **Description:** This Python script utilizes Flespi's REST API to control device lock status and subscribes to its MQTT telemetry for real-time updates on lock status.
+- **Description:** This Python script utilizes Flespi's REST API POST request to control device lock status and subscribes to its MQTT telemetry for real-time updates on lock status.
 - **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/commands`
 ```json
 {
