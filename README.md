@@ -220,7 +220,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
 - **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/messages`
 - **Method:** `GET`
 - **Sample Responses:**
-```json
+```js
 {
   "result": [
     {
@@ -287,7 +287,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
 - **API Endpoint:** `https://flespi.io/gw/devices/{device_id}/commands`  
 - **Method:** `POST`
 - Sample JSON Data Sent in the POST Request
-```json
+```js
 {
   "name": "setting.r0.set",
   "properties": {
@@ -300,7 +300,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
 
 ```
 - **Sample Response:**
-```json
+```js
 {
     "result": [
         {
@@ -322,7 +322,7 @@ Additionally, you can find information about tokens and access keys in the [Toke
 }
 ```
 - **MQTT Topic:** `flespi/state/gw/devices/{device_id}/telemetry/lock.status`
-```json
+```js
 true
 ```
 
@@ -347,7 +347,7 @@ This JSON data includes:
 - `"access"`: Specifies the access type, where `type` 1 indicates a Master token.
 - `"ttl"`: Time to live in seconds, set to 60 seconds.
 - **Sample Response:**
-```json
+```js
 {
   "result": [
     {
