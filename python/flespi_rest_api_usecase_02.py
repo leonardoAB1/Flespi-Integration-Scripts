@@ -19,9 +19,13 @@ import datetime
 import geopandas as gpd
 from shapely.geometry import Point
 import matplotlib.pyplot as plt
+import csv
+
+# Define the file name for saving CSV
+csv_file = "device_locations.csv"
 
 # Define the Flespi API endpoint URL to get all registered devices
-device_id = 5537057
+device_id = 5544049 
 reqUrl = f"https://flespi.io/gw/devices/{device_id}/messages"
 
 # Set the authorization token from environment variables
@@ -66,6 +70,25 @@ ax = gdf.plot(marker='o', color='red', markersize=10)
 ax.set_title('Device Locations')
 ax.set_xlabel('Longitude')
 ax.set_ylabel('Latitude')
+
+# Open the CSV file in write mode
+with open(csv_file, mode='w', newline='') as file:
+    # Create a CSV writer object
+    writer = csv.writer(file)
+    
+    # Write the header row
+    writer.writerow(["lat", "lng"])
+    
+    # Write data to the CSV file
+    for entry in response['result']:
+        if 'position.latitude' in entry and 'position.longitude' in entry and 'timestamp' in entry:
+            latitude = float(entry['position.latitude'])
+            longitude = float(entry['position.longitude'])
+            
+            # Write the data row
+            writer.writerow([latitude, longitude])
+
+print(f"Data saved to {csv_file} successfully!")
 
 # Show the plot
 plt.show()
