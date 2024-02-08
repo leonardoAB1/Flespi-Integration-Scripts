@@ -321,6 +321,15 @@ Additionally, you can find information about tokens and access keys in the [Toke
     ]
 }
 ```
+
+#### **Note:** Several commands can be send thru the `https://flespi.io/gw/devices/{device_id}/commands` `POST` API.
+
+| Command Sent | Response | Description |
+|--------------|----------|-------------|
+| [{"name": "setting.r0.set","properties": {"key_time": 1,"lock": 1,"user_id": ""},"timeout": 10}]     | {"result": [{"timestamp": 1707338648,"response": null, "id": SomeID, "position": 1, "name": "setting.r0.set","device_id": 5544049,"executed": false,"properties": {"key_time": 1,"lock":1,"user_id":""},"expires": 0}]} | Lock/Unlock Device|
+| [{"name": "setting.s1.set","properties": {"event_code": 2},"timeout": 10}]     | {"result": [{"timestamp": 1707337774,"response": "command sent and marked as executed without waiting for the answer","id": SomeID,"position": 1,"name": "setting.s1.set","device_id": 5544049,"executed": true,"properties": {"event_code": 2},"expires": 0}]} | Restart Device |
+| [{"name": "setting.d1.set","properties": {"upload_interval": 10},"timeout": 10}]| {"result": [{"timestamp": 1707402602, "response": "command sent and marked as executed without waiting for the answer", "id": 1707402602954333,"position": 1,"name": "setting.d1.set","device_id": 5544049,"executed": true,"properties": {"upload_interval": 10},"expires": 0}]}| Modify Sampling Time|
+
 - **MQTT Topic:** `flespi/state/gw/devices/{device_id}/telemetry/lock.status`
 ```js
 true
@@ -368,10 +377,3 @@ This JSON data includes:
 }
 ```
 This sample response provides details of the newly created token, including its ID, key, privileges, and expiration time.
-
-#### **Note:** Several commands can be send thru the `https://flespi.io/gw/devices/{device_id}/commands` `POST` API.
-
-| Command Sent | Response | Description |
-|--------------|----------|-------------|
-| [{"name": "setting.s1.set","properties": {"event_code": 2},"timeout": 10}]     | {"result": [{"timestamp": 1707337774,"response": "command sent and marked as executed without waiting for the answer","id": SomeID,"position": 1,"name": "setting.s1.set","device_id": 5544049,"executed": true,"properties": {"event_code": 2},"expires": 0}]} | Restart Device |
-| [{"name": "setting.r0.set","properties": {"key_time": 1,"lock": 1,"user_id": ""},"timeout": 10}]     | {"result": [{"timestamp": 1707338648,"response": null, "id": SomeID, "position": 1, "name": "setting.r0.set","device_id": 5544049,"executed": false,"properties": {"key_time": 1,"lock":1,"user_id":""},"expires": 0}]} | Lock/Unlock Device|
