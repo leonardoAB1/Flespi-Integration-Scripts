@@ -25,7 +25,7 @@ import csv
 csv_file = "device_locations.csv"
 
 # Define the Flespi API endpoint URL to get all registered devices
-device_id = 5544049 
+device_id = 5539228 
 reqUrl = f"https://flespi.io/gw/devices/{device_id}/messages"
 
 # Set the authorization token from environment variables
@@ -39,8 +39,9 @@ payload = ""
 # Make a GET request to the Flespi API to get all registered devices
 response = json.loads(requests.request("GET", reqUrl, data=payload, headers=headersList).text)
 
-print(json.dumps(response, indent=4))
-
+with open('response.json', 'w', encoding='utf-8') as f:
+    json.dump(response, f, ensure_ascii=False, indent=4)
+    
 ###############################################################################################################
 ###############################################################################################################
 ###############################################################################################################
