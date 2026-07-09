@@ -1,6 +1,6 @@
 # Flespi Integration Scripts
 
-This repository houses a set of scripts designed for integration with the Flespi platform, employing both MQTT and REST APIs. The scripts serve as illustrative examples for diverse use cases, including but not limited to real-time message retrieval, scooter location tracking, active TCP connection monitoring from a device, and retrieving details about registered devices.
+Python scripts for integrating IoT fleet telemetry with the [Flespi](https://flespi.com) platform over its MQTT and REST APIs, written while integrating an electric scooter fleet at Mobi Latam. They cover the recurring real-world tasks of fleet operations: real-time message retrieval, live scooter location tracking, monitoring active TCP connections from a device, and querying registered devices.
 
 For comprehensive documentation, please refer to the [General Documentation](https://flespi.io/docs/#/mqtt/sessions).  
 Additionally, you can find information about tokens and access keys in the [Token Documentation](https://flespi.com/kb/tokens-access-keys-to-flespi-platform#token-groups).
